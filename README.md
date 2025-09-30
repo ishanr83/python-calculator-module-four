@@ -3,7 +3,7 @@
 Author: Ishan Rehan  
 Date: 2025-09-29
 
-## Run
+# Run
 ```bash
 python -m app.calculator
 
@@ -12,16 +12,16 @@ python -m app.calculator
 **Author:** Ishan Rehan  
 **Date:** 2025-09-29
 
-## Overview
+# Overview
 A modular command-line calculator in Python. It uses a clean architecture (operations, calculation factory, REPL), strong error handling (LBYL + EAFP), full unit/parameterized tests, and a GitHub Actions workflow that **fails** if coverage is below **100%**.
 
-## Features
+# Features
 - REPL interface (`add|sub|mul|div <a> <b>`, `history`, `help`, `exit|quit|q`)
 - Input validation (LBYL) and safe exception handling (EAFP for division by zero)
 - `CalculationFactory` creates immutable calculations and saves session history
 - Unit + parameterized tests with **100% coverage** enforced locally and in CI
 
-## Project Structure
+# Project Structure
 python-calculator-module-four/
 ├── app/
 │ ├── calculator/ # REPL (entry: python -m app.calculator)
@@ -33,7 +33,7 @@ python-calculator-module-four/
 ├── pytest.ini
 ├── requirements.txt
 
-## Setup
+# Setup
 ```bash
 python -m venv .venv
 # Windows Git Bash:
