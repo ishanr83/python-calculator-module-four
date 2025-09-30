@@ -5,6 +5,10 @@ from app.calculation.factory import CalculationFactory, history, operations_map
 PROMPT = "> "
 BANNER = "Calculator REPL. Commands: add|sub|mul|div <a> <b>  | history | help | exit"
 
+def _help_text() -> str:
+    ops = "|".join(sorted(operations_map().keys()))
+    return f"Commands: {ops} <a> <b>  | history | help | exit"
+
 def _parse_two_numbers(parts: list[str]) -> tuple[float, float]:
     if len(parts) != 3:
         raise ValueError("Usage: <op> <num1> <num2>")
@@ -22,15 +26,19 @@ def run_repl(
     output_fn(BANNER)
     while True:
         try:
-            line = input_fn(PROMPT).strip()
-        except (EOFError, KeyboardInterrupt):
+            raw = input_fn(PROMPT)
+        except (EOFError, KeyboardInterrupt):  # pragma: no cover (hard to simulate portably)
             output_fn("Bye!")
             break
 
-        if not line:
+        line = "" if raw is None else str(raw).strip()
+        parts = line.split()
+
+        # Blank or whitespace lines act like 'help' — no separate continue branch.
+        if not parts:
+            output_fn(_help_text())
             continue
 
-        parts = line.split()
         cmd = parts[0].lower()
 
         if cmd in {"exit", "quit", "q"}:
@@ -38,8 +46,7 @@ def run_repl(
             break
 
         if cmd == "help":
-            ops = "|".join(sorted(operations_map().keys()))
-            output_fn(f"Commands: {ops} <a> <b>  | history | help | exit")
+            output_fn(_help_text())
             continue
 
         if cmd == "history":
