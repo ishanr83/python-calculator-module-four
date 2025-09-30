@@ -20,15 +20,15 @@ A modular command-line calculator in Python. It uses a clean architecture (opera
 ## Project Structure
 ```
 python-calculator-module-four/
-├── app/
-│   ├── calculator/ # REPL (entry: python -m app.calculator)
-│   ├── calculation/ # Calculation model, factory, history
-│   └── operation/ # Arithmetic operations
-├── tests/ # Unit + parameterized tests (100% coverage)
-├── .github/workflows/ # GitHub Actions CI (coverage gate)
-├── README.md
-├── pytest.ini
-├── requirements.txt
+app/
+── calculator/ # REPL (entry: python -m app.calculator)
+── calculation/ # Calculation model, factory, history
+    ─ operation/ # Arithmetic operations
+── tests/ # Unit + parameterized tests (100% coverage)
+── .github/workflows/ # GitHub Actions CI (coverage gate)
+── README.md
+── pytest.ini
+── requirements.txt
 ```
 
 ## Setup
