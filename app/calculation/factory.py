@@ -31,3 +31,7 @@ class CalculationFactory:
 def _reset_history_for_tests() -> None:  # pragma: no cover
     """Clear session history (used by tests)."""
     _HISTORY.clear()
+
+def _reset_history_for_tests() -> None:  # pragma: no cover
+    """Clear session history (used by tests)."""
+    _HISTORY.clear()
